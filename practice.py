@@ -103,7 +103,7 @@ print("뒤 7자리 : "+jumin[7:14])
 print("뒤 7자리 : "+jumin[7:])#7번째부터 끝까지
 print("뒤 7자리 (뒤에서부터) : "+jumin[-7:])#맨뒤에서 6번째부터 끝까지
 
-python = "python is Amazing"
+python = "python is Amazing"       
 print(python.lower())#다 소문자로 
 print(python.upper())
 print(python[0].isupper())#대문자인지 여부 확인
