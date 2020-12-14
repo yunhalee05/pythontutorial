@@ -90,7 +90,7 @@ print(sentence2)
 sentence3 = """
 나는 소년이고, 
 파이썬은 쉬워요
-"""#줄바꿈까지 포함
+"""#줄바꿈까지 포함  
 print(sentence3)          
 
 jumin = "229922-9229999"
