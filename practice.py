@@ -990,5 +990,35 @@ for house in houses:
 #         print("재고가 소진되어 더 이상 주문을 받지 않습니다.")
 #         break
 
-#모듈
+#모듈 부품끼리, 만들어진 타이어만 교체, 부품만 교체하도록 (유지보수 쉽고 수정 쉽게)
+#잔돈을 돌려주지 않는 영화관, 금액에 맞춰서 줘야한다. (가격을 미리 알 수 있는 모듈 만들어보자.)
+import theater_module
+theater_module.price(3)#3명이서 영화보러 갔을 때 가격
+theater_module.price_morning(4) #4명이서 조조할인 영화 가격
+theater_module.price_soldier(5)#5명의 군인이 영화보러 갔을 때
+
+import theater_module as mv #별명 붙이기
+mv.price(3)
+mv.price_morning(4)
+mv.price_soldier(5)
+
+from theater_module import *
+#from randeom import*
+price(3)
+price_morning(4)
+price_soldier(5)
+
+from theater_module import price, price_morning#필요한 것만
+price(5)
+price_morning(6)
+
+from theater_module import price_soldier as price #필요한것만 가져오는데 이름을 쉽게 별명으로
+price(5)#실제로 price_soldier가 된다. 
+
+#패키지(모듈의 집합)
+import travel.thailand
+trip_to = travel.thailand.ThailandPackage()
+trip_to.detail()
+
+
 
