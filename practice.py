@@ -1016,9 +1016,97 @@ from theater_module import price_soldier as price #필요한것만 가져오는�
 price(5)#실제로 price_soldier가 된다. 
 
 #패키지(모듈의 집합)
-import travel.thailand
+import travel.thailand #클래스나 함수는 임포트 직접 불가능 하다. 
 trip_to = travel.thailand.ThailandPackage()
 trip_to.detail()
 
+#import travel.thailand.ThailandPackage #클래스 직접은 안된다. (from에서는 가능 )
 
+#from import 구문에서는 패키지, 함수 모듈 모두 가능하다. 
+from travel.thailand import ThailandPackage #얘는 가능하다. 
+trip_to = travel.thailand.ThailandPackage()
+trip_to.detail()
+
+from travel import vietnam  
+trip_to = vietnam.VietnamPackage()
+trip_to.detail()
+
+#__all__
+# from travel import *
+# trip_to = vietnam.VietnamPackage()#여기는 오류가 날 것인데, 위에서 *을 쓴것은 모두 가져오겠다는 것인데, 사실 import안에서 공개범위설정을 해줘야 하는 것이다. 
+# trip_to.detail()
+
+from travel import *
+trip_to = vietnam.VietnamPackage()#__int__파일에서 설정해줘서 (__all__) 실행이 된 다. 
+trip_to.detail() #여기서 또 Thailand 걸 사용하려고 하면 all에서 설정 안되서 오류 생긴다. 
+
+#모듈 직접 실행
+from travel.thailand import ThailandPackage  #외부에서 호출했다는 표시 뜰 것이다. 
+trip_to = travel.thailand.ThailandPackage()
+trip_to.detail()
+
+#패키지 모듈 위치
+import inspect
+import random
+print(inspect.getfile(random))#랜덤 파일이 어디있는지 호출 해준다.
+# print(inspect.getfile(thailand))
+
+#pip_install 다른 사람들이 만들어 놓은 패키지 가져다 쓰기
+#pip show 
+#pip list
+#pip uninstall
+
+#내장 함수 , input, 
+# language = input ("무슨 언어를 좋아하세요?")
+# print("{0}은 아주 좋은 언어 입니다.".format(language))
+
+#dir 어떤 객체를 넘겨줬을 때 그 객체가 어떤 변수와 함수를 가지고 있는지 보여주낟. 
+print(dir())#여기는 기본 것 만 나온다. 
+import random #외장함수
+print(dir()) #random 추가 되어서 나온다. 
+import pickle
+print(dir())#pickel이 추가 된다. 
+print(dir(random))#랜덤 모듈 내에서 쓸 수 있는 것이 나온다. 
+
+lst =[1,2,3]
+print(dir(lst))#리스트에서 쓸 수 있는 것 나온다.
+name = "JIM"
+print(dir(name)) #네임에 대해서 쓸 수 있는 것 나온다. 이외에도 list of python builtin이라고 검색하면 내장함수 내용 볼 수 있다. 
+
+#외장함수 직접 임포트 해서 사용해야 한다.  list of python module 이라고 검색하면 나온다. ex)random...
+#glob:경로내의 폴더/파일 목록 조회 (윈도우 dir)
+import glob
+print(glob.glob("*.py"))#확장자가 py인 모든 파일
+#os : 운영체제에서 제공하는 기본 기능
+import os 
+# print(os.getcwd()) #현재 디렉토리 표시
+# folder = "sample_dir"
+# if os.path.exists(folder): #폴더 dir 있으면
+#     print("이미 존재하는 폴더 입니다.")
+#     os.rmdir(folder)#폴더 삭제
+#     print(folder, "폴더를 삭제하였습니다.")
+
+# else:
+#     os.makedirs(folder)#폴더 생성
+#     print(folder, "폴더를 생성하였습니다.")
+    
+print(os.listdir())
+
+#time : 시간관련 함수
+import time
+print(time.localtime())
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+
+#datetime
+import datetime
+print("오늘 날짜는 ", datetime.date.today())
+
+#timedelta :두 날짜 사이의 간격
+today = datetime.date.today() #오늘 날짜 저장
+td = datetime.timedelta(days = 100) #100일 저장
+print("우리가 만난지 100일은", today +td)# 오늘부터 100일 후
+
+#퀴즈
+import byme
+byme.sign()
 
